@@ -1,21 +1,3 @@
-const searchEl = document.querySelector('.search');
-const searchInputEl = searchEl.querySelector('input');
-
-searchEl.addEventListener('click', function () {
-    searchInputEl.focus();
-})
-
-searchInputEl.addEventListener('focus', function () {
-    searchEl.classList.add('focused');
-    searchInputEl.setAttribute('placeholder', '통합검색'); //html 속성 지정 클래스
-})
-
-searchInputEl.addEventListener('blur', function () {
-    searchEl.classList.remove('focused');
-    searchInputEl.setAttribute('placeholder', ''); //html 속성 지정 클래스
-})
-
-
 const badgeEl = document.querySelector("header .badges");
 const toTopEl = document.querySelector('#to-top')
 
@@ -27,9 +9,9 @@ window.addEventListener('scroll', _.throttle(function () {
             display: 'none'
         });
         //버튼 보이기
-        gsap.to(toTopEl, .2,{
+        gsap.to(toTopEl, .2, {
             x: 0,
-            
+
         })
     } else {
         // 배지 보이기
@@ -38,7 +20,7 @@ window.addEventListener('scroll', _.throttle(function () {
             display: 'block'
         });
         //버튼 숨기기
-        gsap.to(toTopEl, .2,{
+        gsap.to(toTopEl, .2, {
             x: 100,
 
         })
@@ -48,8 +30,8 @@ window.addEventListener('scroll', _.throttle(function () {
 //lodash 라이브러리 사용 스크롤을 이동할때 스크롤의 양을 줄여줌
 //_.throttle(함수, 시간) gsap.to(요소, 지속시간, 옵션)
 
-toTopEl.addEventListener('click',function(){
-    gsap.to(window, .7,{
+toTopEl.addEventListener('click', function () {
+    gsap.to(window, .7, {
         scrollTo: 0
     });
 })
@@ -90,14 +72,14 @@ new Swiper('.promotion .swiper-container', {
     }
 });
 
-new Swiper('.awards .swiper-container',{
+new Swiper('.awards .swiper-container', {
     autoplay: true,
     loop: true,
-    spaceBetween: 30 ,
+    spaceBetween: 30,
     slidesPerView: 5,
-    navigation:{
-    prevEl: '.awards .swiper-prev',
-    nextEl: '.awards .swiper-next'
+    navigation: {
+        prevEl: '.awards .swiper-prev',
+        nextEl: '.awards .swiper-next'
     }
 });
 
@@ -141,17 +123,15 @@ floatingObject('.floating2', .5, 15);
 floatingObject('.floating3', 1.5, 20);
 
 
-const spyEls = document.querySelectorAll('section.scroll-spy') 
-spyEls.forEach(function(spyEl){
+const spyEls = document.querySelectorAll('section.scroll-spy')
+spyEls.forEach(function (spyEl) {
     new ScrollMagic
-    .Scene({
-        triggerElement: spyEl, // 보여짐 여부를 감시할 요소를 지정
-        triggerHook: .8, // 
-    }) 
-    .setClassToggle(spyEl, 'show')
-    .addTo(new ScrollMagic.Controller());
+        .Scene({
+            triggerElement: spyEl, // 보여짐 여부를 감시할 요소를 지정
+            triggerHook: .8, // 
+        })
+        .setClassToggle(spyEl, 'show')
+        .addTo(new ScrollMagic.Controller());
 });
 
-const thisYear = document.querySelector('.this-year');
-thisYear.textContent = new Date().getFullYear(); 
 
